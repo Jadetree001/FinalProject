@@ -4,7 +4,27 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class GuessedLetters {
+    
     private Set<Character> guessedLetters;
+
+    public GuessedLetters() {
+        guessedLetters = new HashSet<>();
+    }
+
+    public boolean contains(char letter) {
+        return guessedLetters.contains(letter);
+    }
+
+    public void add(char letter) {
+        guessedLetters.add(letter);
+    }
+
+    public boolean isLetterGuessedAlready(char letter) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isLetterGuessedAlready'");
+    }
+
+    /*private Set<Character> guessedLetters;
 
     public GuessedLetters() {
         guessedLetters = new HashSet<>();
@@ -22,5 +42,5 @@ public class GuessedLetters {
 
     public boolean isLetterGuessed(char letter) {
         return guessedLetters.contains(letter);
-    }
+    }*/
 }

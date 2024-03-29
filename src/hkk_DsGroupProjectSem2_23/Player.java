@@ -1,8 +1,113 @@
 package hkk_DsGroupProjectSem2_23;
 
 public class Player {
+
+    private int playerNumber;
+    private String name;
+    private int grandTotal;
+    private int roundTotal;
+    private GuessedLetters guessedLetters;
+    private int money;
+    private String puzzle; // Assuming player gets the puzzle to solve
+
+    // Constants
+    private static final int VOWEL_COST = 250;
+
+    //Default Constructor
+	public Player() {
+		playerNumber = 0;
+        name = " ";
+        grandTotal = 0;
+        roundTotal = 0;
+        guessedLetters = new GuessedLetters();
+	}
+
+    public Player(int playerNumber, String name) {
+        this.playerNumber = playerNumber;
+        this.name = name;
+        this.guessedLetters = new GuessedLetters();
+        this.money = 0;
+        this.puzzle = ""; // Initialize with an empty string
+    }
+
+    // Getter methods
+    public int getPlayerNumber() {
+		return playerNumber;
+	}
+
+	public void setPlayerNumber(int playerNumber) {
+		this.playerNumber = playerNumber;
+	}
+    
+    public int getGrandTotal() {
+        return grandTotal;
+    }
+
+    public int getRoundTotal() {
+        return roundTotal;
+    }
+
+    public int getCurrentRoundTotal() {
+        return roundTotal;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    // Other methods
+    public void resetRoundTotal() {
+        this.roundTotal = 0;
+    }
+
+    public void resetGrandTotal() {
+        this.grandTotal = 0;
+    }
+
+    public void addRoundTotal(int amount) {
+        this.roundTotal += amount;
+    }
+
+    public void incrementGrandTotal(int amount) {
+        grandTotal += amount;
+    }
+
+    public boolean buyVowel(char vowel) {
+        if (money >= VOWEL_COST && !guessedLetters.contains(vowel) && isVowel(vowel)) {
+            guessedLetters.add(vowel); // Mark vowel as guessed
+            money -= VOWEL_COST;
+            // Check if the vowel is in the puzzle, if necessary
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean solvePuzzle(String solution) {
+        if (this.puzzle.equalsIgnoreCase(solution)) {
+            int reward = calculatePuzzleReward(); // Implement this method based on desired logic
+            money += reward;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private int calculatePuzzleReward() {
+        // Example calculation, adjust as necessary
+        return 1000; // Base reward for solving the puzzle
+    }
+
+    private boolean isVowel(char ch) {
+        return "AEIOU".indexOf(Character.toUpperCase(ch)) >= 0;
+    }
 	
-	private int playerNumber;
+    /************ Original ****************/
+	/*private int playerNumber;
 	private String name;
 	private int grandTotal;
 	private int roundTotal;
@@ -92,6 +197,11 @@ public class Player {
     }
 
     
+
+    // Method to reset the grand total to 0
+    public void resetGrandTotal() {
+        this.grandTotal = 0;
+    }
     
     public void isLetterGuessedAlready(char letter, Puzzle puzzle, Card spunCard) {
         if (guessedLetters.isLetterGuessedAlready(letter)) {
@@ -138,6 +248,6 @@ public class Player {
             System.out.println("Invalid vowel. Vowels allowed: A, E, I, O, U");
         }
     }
-    
+    */
 
 }
