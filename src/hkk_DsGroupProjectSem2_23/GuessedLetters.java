@@ -10,13 +10,13 @@ public class GuessedLetters {
         guessedLetters = new HashSet<>();
     }
 
-    public boolean guessLetter(char letter) {
+    public boolean isLetterGuessedAlready(char letter) {
         if (guessedLetters.contains(letter)) {
             System.out.println("You already guessed this letter.");
-            return false;
+            return true;
         } else {
             guessedLetters.add(letter);
-            return true;
+            return false;
         }
     }
 

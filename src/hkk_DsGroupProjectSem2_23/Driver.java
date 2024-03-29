@@ -159,8 +159,9 @@ public class Driver {
             player.buyVowel(vowel, puzzle);
         } else if (guess.length() == 1 && Character.isLetter(guess.charAt(0))) {
             char letter = guess.charAt(0);
-            if (!guessedLetters.guessLetter(letter)) {
+            if (!guessedLetters.isLetterGuessedAlready(letter)) {
                 // Handle correct guess logic here
+                puzzle.updatePuzzlesGuessed(letter);
                 int occurrences = puzzle.getPuzzleText().toLowerCase().replaceAll("[^" + letter + "]", "").length();
                 int moneyEarned = occurrences * player.getCurrentRoundTotal();
                 player.addRoundTotal(moneyEarned);
@@ -286,7 +287,7 @@ public class Driver {
 	            	        case '1':
 	            	            // Guess a letter
 	            	            char letter = getGuessedLetter(); // Assume you have a method to get user input for letter
-	            	            player.guessLetter(letter, puzzle, spunCard);
+	            	            player.isLetterGuessedAlready(letter, puzzle, spunCard);
 	            	            break;
 	            	        case '2':
 	            	            // Solve the puzzle

@@ -93,8 +93,8 @@ public class Player {
 
     
     
-    public void guessLetter(char letter, Puzzle puzzle, Card spunCard) {
-        if (guessedLetters.guessLetter(letter)) {
+    public void isLetterGuessedAlready(char letter, Puzzle puzzle, Card spunCard) {
+        if (guessedLetters.isLetterGuessedAlready(letter)) {
             int occurrences = 0;
             String puzzleText = puzzle.getPuzzleText();
             for (char c : puzzleText.toCharArray()) {
@@ -120,7 +120,7 @@ public class Player {
     public void buyVowel(char vowel, Puzzle puzzle) {
         if (vowel == 'A' || vowel == 'E' || vowel == 'I' || vowel == 'O' || vowel == 'U') {
             if (roundTotal >= 250) {
-                if (guessedLetters.guessLetter(vowel)) {
+                if (guessedLetters.isLetterGuessedAlready(vowel)) {
                     int occurrences = 0;
                     String puzzleText = puzzle.getPuzzleText();
                     for (char c : puzzleText.toCharArray()) {
