@@ -10,6 +10,7 @@ public class PlayerNode {
         data = new Player();
         next = null;
         prev = null;
+		/*jjhjh */
     }
 	
 	//Primary 1

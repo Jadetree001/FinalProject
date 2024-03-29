@@ -13,6 +13,7 @@ public class Puzzle {
     public Puzzle(String category, String puzzleText) {
         this.category = category;
         this.puzzleText = puzzleText;
+        /*hghghg */
     }
 
     public Puzzle(Puzzle copy) {
