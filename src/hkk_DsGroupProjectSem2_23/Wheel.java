@@ -5,13 +5,22 @@ import java.util.Random;
 public class Wheel {
 	private CardCircularLL cards;
     private CardNode currentCard;
+    private Puzzle currentPuzzle;
 
     public Wheel() {
+        currentPuzzle = new Puzzle();
         cards = new CardCircularLL();
         initializeWheel();
         currentCard = null; // Initially, no card is selected
     }
     
+    public Puzzle getCurrentPuzzle() {
+        return currentPuzzle;
+    }
+
+    public void setCurrentPuzzle(Puzzle puzzle) {
+        this.currentPuzzle = puzzle;
+    }
     
 
     public CardCircularLL getCards() {
