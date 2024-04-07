@@ -136,6 +136,20 @@ public class Driver {
             }
             
         }
+
+        int highestGrandTotal = 0;
+        int playerIndexForGrand = 0;
+        for (int num = 0; num < players.length; num++) {
+            if (players[num].getGrandTotal() > highestGrandTotal) {
+                highestGrandTotal = players[num].getGrandTotal();
+                playerIndexForGrand = num;
+            }
+        }
+
+        System.out.println("*******************************************");
+        System.out.println(players[playerIndexForGrand].getName() + " wins the game!");
+        System.out.println("With Grand total of $" + players[playerIndexForGrand].getGrandTotal());
+        System.out.println("*******************************************");
     
         // Reset player states for the next game
         resetPlayerStates();

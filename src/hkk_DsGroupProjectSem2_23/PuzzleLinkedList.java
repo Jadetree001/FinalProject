@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class PuzzleLinkedList {
 	
@@ -80,7 +81,9 @@ public class PuzzleLinkedList {
         if (categoryPuzzles.isEmpty()) {
             return null; // No puzzles found in the category
         }
-        int randomIndex = (int) (Math.random() * categoryPuzzles.size());
+        //int randomIndex = (int) (Math.random() * categoryPuzzles.size());
+        Random random = new Random();
+        int randomIndex = random.nextInt(categoryPuzzles.size());
         return categoryPuzzles.get(randomIndex);
     }
 
