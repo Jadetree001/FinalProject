@@ -1,3 +1,8 @@
+/*Hueland Hunter - 2006702 
+ * Kimar McDonald-Morgan - 1403238
+ * Kevon Bennett - 2101075
+*/
+
 package hkk_DsGroupProjectSem2_23;
 
 import java.util.Scanner;

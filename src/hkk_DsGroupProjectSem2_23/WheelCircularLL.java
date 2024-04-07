@@ -1,3 +1,6 @@
+/*Hueland Hunter - 2006702 
+ *Kevon Bennett - 2101075
+*/
 package hkk_DsGroupProjectSem2_23;
 
 public class WheelCircularLL {

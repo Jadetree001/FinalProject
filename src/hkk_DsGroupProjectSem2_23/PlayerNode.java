@@ -1,3 +1,6 @@
+/*
+ * Kimar McDonald-Morgan - 1403238
+*/
 package hkk_DsGroupProjectSem2_23;
 
 public class PlayerNode {
