@@ -7,25 +7,28 @@ public class Puzzle {
     private String puzzleText;
     private boolean[] puzzles;
 
+    //Default
     public Puzzle() {
         this.category = "";
         this.puzzleText = "";
     }
 
+    //Primary
     public Puzzle(String category, String puzzleText) {
         this.category = category;
         this.puzzleText = puzzleText;
         puzzles = new boolean[puzzleText.length()];
         
-        /*hghghg */
     }
 
+    //Copy
     public Puzzle(Puzzle copy) {
         this.category = copy.category;
         this.puzzleText = copy.puzzleText;
         puzzles = new boolean[puzzleText.length()];
     }
 
+    //Setters & Getters
     public String getCategory() {
         return category;
     }
@@ -83,17 +86,5 @@ public class Puzzle {
         }
     }
 
-	// public boolean revealGuessedLetter( char letter) {
-	// 	boolean found = false;
-	//     char[] puzzleChars = puzzleText.toCharArray();
-	//     for (int i = 0; i < puzzleChars.length; i++) {
-	//         if (Character.toLowerCase(puzzleChars[i]) == Character.toLowerCase(letter)) {
-	//             puzzleChars[i] = puzzleText.charAt(i);
-	//             found = true;
-	//         }
-	//     }
-	//     puzzleText = new String(puzzleChars);
-	// 	return false;
-	// }
 
 }

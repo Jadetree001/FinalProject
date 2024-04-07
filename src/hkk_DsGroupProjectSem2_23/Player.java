@@ -22,9 +22,8 @@ public class Player {
 
     public Player(int playerNumber, String name) {
         this.playerNumber = playerNumber;
-        this.name = name;
-        // this.money = 0;
-        this.puzzle = ""; // Initialize with an empty string
+        this.name = name;        
+        this.puzzle = ""; 
     }
 
     // Getter methods
@@ -87,7 +86,7 @@ public class Player {
 
     public boolean solvePuzzle(String solution) {
         if (this.puzzle.equalsIgnoreCase(solution)) {
-            int reward = calculatePuzzleReward(); // Implement this method based on desired logic
+            int reward = calculatePuzzleReward(); 
             grandTotal += reward;
             return true;
         } else {
@@ -96,7 +95,7 @@ public class Player {
     }
 
     private int calculatePuzzleReward() {
-        // Example calculation, adjust as necessary
+        
         return 1000; // Base reward for solving the puzzle
     }
 

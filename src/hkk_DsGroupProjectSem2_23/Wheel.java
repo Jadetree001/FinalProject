@@ -7,6 +7,7 @@ public class Wheel {
     private CardNode currentCard;
     private Puzzle currentPuzzle;
 
+    //Default
     public Wheel() {
         currentPuzzle = new Puzzle();
         cards = new WheelCircularLL();

@@ -1,6 +1,5 @@
 package hkk_DsGroupProjectSem2_23;
 
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException; 
@@ -16,16 +15,7 @@ public class Driver {
 
 	public static void main(String[] args) {
 
-        // Scanner scanner = new Scanner(System.in);
-        // Player[] players = new Player[3];
-        // Wheel wheel = new Wheel();
-        // boolean roundContinue = true;
-        // boolean playerTurn = true;
-
-
-		
-        /*************Experiment2***********/
-        //Scanner scanner = new Scanner(System.in);
+        
         while (true) {
             System.out.println("\nWelcome to the Wheel of Fortune Game!");
             System.out.println("\nMenu:");
@@ -52,8 +42,7 @@ public class Driver {
 
     public static void playGame() {
         // Initialize game components
-        // PlayerQueue playerQueue = new PlayerQueue();
-        // Wheel wheel = new Wheel();
+        
         PuzzleLinkedList puzzles = new PuzzleLinkedList();
     
         // Add players to the game
@@ -61,10 +50,7 @@ public class Driver {
         players[1] = new Player(2, "Bob");
         players[2] = new Player(3, "Charlie");
 
-        // Initialize puzzles
-        // puzzles.addPuzzleNode(new PuzzleNode(new Puzzle("Movies", "The Godfather")));
-        // puzzles.addPuzzleNode(new PuzzleNode(new Puzzle("Cities", "New York")));
-        // puzzles.addPuzzleNode(new PuzzleNode(new Puzzle("Animals", "Elephant")));
+        
 
         try {
             File gameFile = new File("game.txt");
@@ -95,9 +81,9 @@ public class Driver {
             System.out.println("\nRound " + round);
     
             // Get the puzzle for this round
-            // TODO: should cycle through categories in order or at random to get next puzzle
-            Puzzle puzzle = puzzles.getRandomPuzzle(); // For demonstration, we're choosing a category here
-            //solvepuzzle.refreshPuzzle();
+            
+            Puzzle puzzle = puzzles.getRandomPuzzle(); // Gets Random pzzle
+            
     
             int playerIndex = 0;
             roundContinue = true;
@@ -213,7 +199,7 @@ public class Driver {
                 String solution = scanner.nextLine();
                 if (solution.toLowerCase().equalsIgnoreCase(puzzle.getPuzzleText().toLowerCase())) {
                     System.out.println(players[playerIndex].getName() + " solved the puzzle!");
-                    //playerTurn = false;
+                    
                     roundContinue = false;
                     /**
                      * add any money if it should be done
@@ -235,9 +221,8 @@ public class Driver {
             if ("AEIOUaeiou".indexOf(vowel) != -1) { // check if vowel was entered
                 if (puzzle.isLetterNotRevealedAlready(vowel)) {
                     if (players[playerIndex].buyVowel(vowel)) {
-                        System.out.println("Vowel bought successfully.");
-                        // TODO: check that the letter is added as revealed 
-                        // what does nuying a vowel do different guessing a letter that is a vowel
+                        System.out.println("Vowel bought successfully.");                        
+                        
                     } else {
                         System.out.println("Unable to buy vowel.");
                     }

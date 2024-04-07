@@ -72,16 +72,14 @@ public class PuzzleLinkedList {
         PuzzleNode current = head;
 
         while (current != null) {
-            // if (current.getPuzzle().getCategory().equals(category)) {
-            //     categoryPuzzles.add(current.getPuzzle());
-            // }
+            
             categoryPuzzles.add(current.getPuzzle());
             current = current.getNext();
         }
         if (categoryPuzzles.isEmpty()) {
             return null; // No puzzles found in the category
         }
-        //int randomIndex = (int) (Math.random() * categoryPuzzles.size());
+        
         Random random = new Random();
         int randomIndex = random.nextInt(categoryPuzzles.size());
         return categoryPuzzles.get(randomIndex);
