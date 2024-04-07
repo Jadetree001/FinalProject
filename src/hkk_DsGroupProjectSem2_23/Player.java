@@ -26,7 +26,7 @@ public class Player {
         this.playerNumber = playerNumber;
         this.name = name;
         this.guessedLetters = new GuessedLetters();
-        this.money = 0;
+        // this.money = 0;
         this.puzzle = ""; // Initialize with an empty string
     }
 
@@ -72,17 +72,25 @@ public class Player {
         this.roundTotal += amount;
     }
 
-    public void incrementGrandTotal(int amount) {
-        grandTotal += amount;
+    public void incrementGrandTotal() {
+        grandTotal += roundTotal;
     }
 
     public boolean buyVowel(char vowel) {
-        if (money >= VOWEL_COST && !guessedLetters.contains(vowel) && isVowel(vowel)) {
+        System.out.println("------------");
+        System.out.println(grandTotal);
+        System.out.println(grandTotal >= VOWEL_COST);
+        //System.out.println(!guessedLetters.contains(vowel));
+        //System.out.println(isVowel(vowel));
+            //guessedLetters.add(vowel); // Mark vowel as guessed);
+        if ((grandTotal >= VOWEL_COST) && (!guessedLetters.contains(vowel)) && (isVowel(vowel))) {
             guessedLetters.add(vowel); // Mark vowel as guessed
-            money -= VOWEL_COST;
+            grandTotal -= VOWEL_COST;
             // Check if the vowel is in the puzzle, if necessary
+            System.out.println("the damn function returns true");
             return true;
         } else {
+            System.out.println("the damn function returns false");
             return false;
         }
     }
@@ -90,7 +98,7 @@ public class Player {
     public boolean solvePuzzle(String solution) {
         if (this.puzzle.equalsIgnoreCase(solution)) {
             int reward = calculatePuzzleReward(); // Implement this method based on desired logic
-            money += reward;
+            grandTotal += reward;
             return true;
         } else {
             return false;
@@ -103,7 +111,8 @@ public class Player {
     }
 
     private boolean isVowel(char ch) {
-        return "AEIOU".indexOf(Character.toUpperCase(ch)) >= 0;
+        // return "AEIOU".indexOf(Character.toUpperCase(ch)) >= 0;
+        return "AEIOUaeiou".indexOf(ch) != -1;
     }
 	
     /************ Original ****************/

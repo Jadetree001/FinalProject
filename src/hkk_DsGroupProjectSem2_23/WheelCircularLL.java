@@ -1,12 +1,12 @@
 package hkk_DsGroupProjectSem2_23;
 
-public class CardCircularLL {
+public class WheelCircularLL {
 	
 	private CardNode head;
     private CardNode tail;
     private int size;
 
-    public CardCircularLL() {
+    public WheelCircularLL() {
         head = null;
         tail = null;
         size = 0;

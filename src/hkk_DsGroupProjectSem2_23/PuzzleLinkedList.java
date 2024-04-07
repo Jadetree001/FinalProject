@@ -65,13 +65,16 @@ public class PuzzleLinkedList {
         }
     }
 
-    public Puzzle getRandomPuzzle(String category) {
+    /* check this function its causing a problem */
+    public Puzzle getRandomPuzzle() {
         List<Puzzle> categoryPuzzles = new ArrayList<>();
         PuzzleNode current = head;
+
         while (current != null) {
-            if (current.getPuzzle().getCategory().equals(category)) {
-                categoryPuzzles.add(current.getPuzzle());
-            }
+            // if (current.getPuzzle().getCategory().equals(category)) {
+            //     categoryPuzzles.add(current.getPuzzle());
+            // }
+            categoryPuzzles.add(current.getPuzzle());
             current = current.getNext();
         }
         if (categoryPuzzles.isEmpty()) {

@@ -73,6 +73,16 @@ public class Puzzle {
         }
     }
 
+    public boolean isLetterNotRevealedAlready(char letter){
+        return getMaskedPuzzleText().indexOf(letter) == -1;
+    }
+
+    public void refreshPuzzle() {
+        for (int num = 0; num < puzzleText.length(); num++) {
+            puzzles[num] = false;
+        }
+    }
+
 	// public boolean revealGuessedLetter( char letter) {
 	// 	boolean found = false;
 	//     char[] puzzleChars = puzzleText.toCharArray();

@@ -3,13 +3,13 @@ package hkk_DsGroupProjectSem2_23;
 import java.util.Random;
 
 public class Wheel {
-	private CardCircularLL cards;
+	private WheelCircularLL cards;
     private CardNode currentCard;
     private Puzzle currentPuzzle;
 
     public Wheel() {
         currentPuzzle = new Puzzle();
-        cards = new CardCircularLL();
+        cards = new WheelCircularLL();
         initializeWheel();
         currentCard = null; // Initially, no card is selected
     }
@@ -23,13 +23,13 @@ public class Wheel {
     }
     
 
-    public CardCircularLL getCards() {
+    public WheelCircularLL getCards() {
 		return cards;
 	}
 
 
 
-	public void setCards(CardCircularLL cards) {
+	public void setCards(WheelCircularLL cards) {
 		this.cards = cards;
 	}
 

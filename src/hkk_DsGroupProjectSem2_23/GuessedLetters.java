@@ -20,17 +20,6 @@ public class GuessedLetters {
     }
 
     public boolean isLetterGuessedAlready(char letter) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isLetterGuessedAlready'");
-    }
-
-    /*private Set<Character> guessedLetters;
-
-    public GuessedLetters() {
-        guessedLetters = new HashSet<>();
-    }
-
-    public boolean isLetterGuessedAlready(char letter) {
         if (guessedLetters.contains(letter)) {
             System.out.println("You already guessed this letter.");
             return true;
@@ -39,6 +28,19 @@ public class GuessedLetters {
             return false;
         }
     }
+
+    // public boolean isLetterGuessedAlready(char letter) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'isLetterGuessedAlready'");
+    // }
+
+    /*private Set<Character> guessedLetters;
+
+    public GuessedLetters() {
+        guessedLetters = new HashSet<>();
+    }
+
+    
 
     public boolean isLetterGuessed(char letter) {
         return guessedLetters.contains(letter);
