@@ -58,15 +58,14 @@ public class Driver {
             while (gameScanner.hasNextLine()){
                 String[] data = gameScanner.nextLine().split(" ");
                 String info = "";
-                System.out.println(data);
                 for (int num = 1; num < data.length; num++) {
-                    System.out.println(num);
+                    
                     if (num == data.length - 1) {
                         info += data[num];
                     } else {
                         info += data[num] + " ";
                     }
-                    System.out.println(info);
+                    
                 }
                 puzzles.addPuzzleNode(new PuzzleNode(new Puzzle(data[0], info)));
             }
