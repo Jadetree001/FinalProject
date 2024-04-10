@@ -194,19 +194,25 @@ public class Driver {
     // Method for the guessing game logic
     public static String GuessGame(int playerIndex, Puzzle puzzle, boolean continuedTurn) {
         
+        // Display the puzzle category and the current state of the puzzle (with masked letters)
         System.out.println("Puzzle Category: " + puzzle.getCategory());
         System.out.println("Puzzle: " + puzzle.getMaskedPuzzleText());
+
+        // Prompt the player based on whether it's a continued turn or not
         if (!continuedTurn) {
             System.out.println("Guess a letter, 'solve' to solve, or 'vowel' to buy a vowel:");
         } else {
             System.out.println("'Spin' to spin wheel again, 'solve' to solve, or 'vowel' to buy a vowel:");
         }
         
+        // Capture player input
         String input = scanner.nextLine();
 
         if (input.equalsIgnoreCase("spin") && continuedTurn) {
+            // If player chooses to spin the wheel again
             wheelTurn(playerIndex);
         } else if (input.equalsIgnoreCase("solve")) {
+            // Handling the puzzle solving attempt
             if (players[playerIndex].getRoundTotal() > 0) {
                 System.out.println("Enter your solution:");
                 String solution = scanner.nextLine();
@@ -214,14 +220,13 @@ public class Driver {
                     System.out.println(players[playerIndex].getName() + " solved the puzzle!");
                     
                     roundContinue = false;
-                    /**
-                     * add any money if it should be done
-                     * end the round 
-                     */
-                    // Additional logic if needed for solving the puzzle
+                    // Logic for awarding prize money for solving the puzzle could be added here
+                    // Example: players[playerIndex].addRoundTotal(prizeMoney);
+                    // End the round
                 }
                 else {
                     System.out.println("Incorrect Solution!");
+                    // Debugging aid - might be removed in production code
                     System.out.println(solution.length() + " -------- " + puzzle.getPuzzleText().length());
 
                 }
@@ -230,6 +235,7 @@ public class Driver {
             }
             
         } else if (input.equalsIgnoreCase("vowel")) {
+            // Handle vowel buying logic
             System.out.println("Enter the vowel you want to buy (A, E, I, O, U): ");
             char vowel = scanner.next().toUpperCase().charAt(0);
             if ("AEIOUaeiou".indexOf(vowel) != -1) { // check if vowel was entered
@@ -238,7 +244,7 @@ public class Driver {
                         System.out.println("Vowel bought successfully.");                        
                         
                     } else {
-                        System.out.println("Unable to buy vowel.");
+                        System.out.println("Not enough funds to buy vowel or vowel purchase failed.");
                     }
                 } else {
                     System.out.println("User this letter has already been revealed.");
@@ -252,16 +258,20 @@ public class Driver {
                 System.out.println("Unable to buy vowel.");
             }
         } else if (input.length() == 1 && Character.isLetter(input.charAt(0)) && !continuedTurn) {
+            // Handle letter guessing logic
             char letter = input.charAt(0);
             if (puzzle.isLetterNotRevealedAlready(letter)) {
 
                 // Handle correct guess logic here
+                // Update puzzle state with guessed letter                
                 puzzle.updatePuzzlesGuessed(letter);
+                // Calculate and add money earned to player's round total
+                // This logic assumes a fixed amount earned per correct letter; adjust as necessary
                 int occurrences = puzzle.getPuzzleText().toLowerCase().replaceAll("[^" + letter + "]", "").length();
                 int moneyEarned = occurrences * players[playerIndex].getCurrentRoundTotal();
                 players[playerIndex].addRoundTotal(moneyEarned);
                 System.out.println(players[playerIndex].getName() + " guessed correctly! Earned $" + moneyEarned);
-                return "continue";
+                return "continue";// Player continues their turn
             
             } else {
                 System.out.println("Letter '" + letter + "' was already guessed. Turn moves to the next player.");
@@ -269,10 +279,11 @@ public class Driver {
 
         } else {
 
+            // Handle invalid input
             System.out.println("Invalid input. Turn moves to the next player.");
         }
 
-        return "";
+        return ""; // Return value could indicate turn end, continue, or specific outcomes
     }
 
     // Method to reset player states for a new game
