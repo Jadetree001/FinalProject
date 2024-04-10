@@ -121,6 +121,7 @@ public class Driver {
                     players[playerIndex].incrementGrandTotal();
                 }
 
+                //Diplay contest GrandTotal
                 System.out.println(players[playerIndex].getName() + "'s Grand Total: $" + players[playerIndex].getGrandTotal());
                 
                 playerIndex++;
