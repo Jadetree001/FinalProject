@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 
 public class Driver {
 
+    // Static variables for the game
     private static Scanner scanner = new Scanner(System.in);
     private static Player[] players = new Player[3];
     private static Wheel wheel = new Wheel();
@@ -21,6 +22,7 @@ public class Driver {
 	public static void main(String[] args) {
 
         
+        // Main game loop
         while (true) {
             System.out.println("\nWelcome to the Wheel of Fortune Game!");
             System.out.println("\nMenu:");
@@ -45,6 +47,7 @@ public class Driver {
 
     }
 
+    // Method to play the game
     public static void playGame() {
         // Initialize game components
         
@@ -58,6 +61,7 @@ public class Driver {
         
 
         try {
+            // Load puzzles from file
             File gameFile = new File("game.txt");
             Scanner gameScanner = new Scanner(gameFile);
             while (gameScanner.hasNextLine()){
@@ -127,6 +131,7 @@ public class Driver {
             
         }
 
+        // Determine winner
         int highestGrandTotal = 0;
         int playerIndexForGrand = 0;
         for (int num = 0; num < players.length; num++) {
@@ -136,6 +141,7 @@ public class Driver {
             }
         }
 
+        // Anounce winner
         System.out.println("*******************************************");
         System.out.println(players[playerIndexForGrand].getName() + " wins the game!");
         System.out.println("With Grand total of $" + players[playerIndexForGrand].getGrandTotal());
@@ -158,6 +164,7 @@ public class Driver {
         }
     }
 
+    // Method for spinning the wheel and handling actions
     public static void wheelTurn(int playerIndex) {
         Card spunCard = wheel.spin();
         System.out.println("Spun: " + spunCard.getType() + " Value: $" + spunCard.getValue());
@@ -183,6 +190,7 @@ public class Driver {
         }
     }
 
+    // Method for the guessing game logic
     public static String GuessGame(int playerIndex, Puzzle puzzle, boolean continuedTurn) {
         
         System.out.println("Puzzle Category: " + puzzle.getCategory());
@@ -209,6 +217,7 @@ public class Driver {
                      * add any money if it should be done
                      * end the round 
                      */
+                    // Additional logic if needed for solving the puzzle
                 }
                 else {
                     System.out.println("Incorrect Solution!");
@@ -265,6 +274,7 @@ public class Driver {
         return "";
     }
 
+    // Method to reset player states for a new game
     public static void resetPlayerStates() {
         for (Player player: players) {
             player.resetRoundTotal();

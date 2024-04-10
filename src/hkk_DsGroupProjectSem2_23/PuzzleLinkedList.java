@@ -15,6 +15,7 @@ public class PuzzleLinkedList {
 	private PuzzleNode head;
     private PuzzleNode tail;
 
+    //Default Constructor
     public PuzzleLinkedList() {
         head = null;
         tail = null;
@@ -40,6 +41,7 @@ public class PuzzleLinkedList {
 
    
 
+    // Method to add a puzzle node to the linked list
     public void addPuzzleNode(PuzzleNode puzzle) {
     	PuzzleNode newNode = new PuzzleNode(puzzle);
     	if (head == null) {
@@ -52,6 +54,7 @@ public class PuzzleLinkedList {
     }
 
     
+    // Method to display all puzzles in the linked list
     public void displayPuzzles() {
         PuzzleNode current = head;
         while (current != null) {
@@ -61,6 +64,7 @@ public class PuzzleLinkedList {
            
     }
     
+    // Method to display masked versions of all puzzles in the linked list
     public void displayMaskedPuzzles() {
         PuzzleNode current = head;
         while (current != null) {
@@ -69,7 +73,7 @@ public class PuzzleLinkedList {
         }
     }
 
-    /* check this function its causing a problem */
+    // Method to get a random puzzle from the linked list
     public Puzzle getRandomPuzzle() {
         List<Puzzle> categoryPuzzles = new ArrayList<>();
         PuzzleNode current = head;

@@ -12,6 +12,7 @@ public class PlayerQueue {
     private PlayerNode rear;
     private int size;
     
+    //Default
     public PlayerQueue() {
         front = null;
         rear = null;
@@ -19,7 +20,7 @@ public class PlayerQueue {
     }
     
     
-    
+    //Setters and Getters
     public PlayerNode getFront() {
 		return front;
 	}
@@ -44,14 +45,17 @@ public class PlayerQueue {
 
 
 
-	public boolean isEmpty() {
+	// Method to check if the queue is empty
+    public boolean isEmpty() {
         return size == 0;
     }
     
+    // Method to get the size of the queue
     public int size() {
         return size;
     }
     
+    // Method to add a player to the end of the queue
     public void enqueue(Player data) {
     	PlayerNode newNode = new PlayerNode(data); // Correctly initialize with player data
         if (isEmpty()) {
@@ -65,6 +69,7 @@ public class PlayerQueue {
         size++; // This should be outside the else block to increment size whether the queue was empty or not
     }
     
+    // Method to remove and return the player at the front of the queue
     public Player dequeue() {
         if (isEmpty()) {
             throw new NoSuchElementException("Queue is empty");
@@ -78,6 +83,7 @@ public class PlayerQueue {
         return data;
     }
     
+    // Method to return the player at the front of the queue without removing it
     public Player queueFront() {
         if (isEmpty()) {
             throw new NoSuchElementException("Queue is empty");

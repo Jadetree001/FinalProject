@@ -18,6 +18,7 @@ public class Wheel {
         currentCard = null; // Initially, no card is selected
     }
     
+    //Setters & Getters
     public Puzzle getCurrentPuzzle() {
         return currentPuzzle;
     }
@@ -51,7 +52,8 @@ public class Wheel {
 
 
 
-	public void initializeWheel() {
+	// Method to initialize the wheel with cards
+    public void initializeWheel() {
         // Add 25 cards to the wheel
         cards.add(new Card(Card.CardType.MONEY, 500)); // $500
         cards.add(new Card(Card.CardType.MONEY, 1000)); // $1000
@@ -81,7 +83,8 @@ public class Wheel {
         
     }
 
-	public Card spin() {
+	//Method to spin the wheel and select a card
+    public Card spin() {
         if (cards.isEmpty()) {
             throw new IllegalStateException("Wheel is empty. Cannot spin.");
         }
@@ -89,6 +92,7 @@ public class Wheel {
         int spinCount = random.nextInt(51) + 50; // Random number between 50 and 100
         
         
+        //Debugging
         System.out.println("Spin count: " + spinCount);
         
         for (int i = 0; i < spinCount; i++) {

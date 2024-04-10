@@ -30,6 +30,8 @@ public class CardNode {
         this.next = node.next;
     }
 
+    //Setters / Getters
+
     public Card getCard() {
         return card;
     }

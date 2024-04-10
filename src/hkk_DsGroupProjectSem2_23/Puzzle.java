@@ -46,9 +46,10 @@ public class Puzzle {
 
     public void setPuzzleText(String puzzleText) {
         this.puzzleText = puzzleText;
-        puzzles = new boolean[puzzleText.length()];
+        puzzles = new boolean[puzzleText.length()];// Initialize puzzles array based on new puzzle text length
     }
 
+    // Method to get the masked puzzle text with revealed and unrevealed letters
     public String getMaskedPuzzleText() {
         StringBuilder maskedText = new StringBuilder();
         for (int num = 0; num < puzzleText.length(); num++) {
@@ -71,6 +72,7 @@ public class Puzzle {
         return maskedText.toString().trim(); // Remove trailing whitespace
     }
 
+    // Method to update the revealed status of letters in the puzzle
     public void updatePuzzlesGuessed(char letter) {
         for (int num = 0; num < puzzleText.length(); num++) {
             if (puzzleText.toLowerCase().toCharArray()[num] == Character.toLowerCase(letter)){
@@ -79,10 +81,12 @@ public class Puzzle {
         }
     }
 
+    // Method to check if a letter has not been revealed already in the puzzle
     public boolean isLetterNotRevealedAlready(char letter){
         return getMaskedPuzzleText().indexOf(letter) == -1;
     }
 
+    // Method to refresh the puzzle by resetting the revealed status of all letters
     public void refreshPuzzle() {
         for (int num = 0; num < puzzleText.length(); num++) {
             puzzles[num] = false;
