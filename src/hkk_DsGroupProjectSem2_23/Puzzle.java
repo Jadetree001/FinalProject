@@ -83,7 +83,7 @@ public class Puzzle {
 
     // Method to check if a letter has not been revealed already in the puzzle
     public boolean isLetterNotRevealedAlready(char letter){
-        return getMaskedPuzzleText().indexOf(letter) == -1;
+        return getMaskedPuzzleText().toUpperCase().indexOf(letter) == -1;
     }
 
     // Method to refresh the puzzle by resetting the revealed status of all letters

@@ -121,7 +121,8 @@ public class Driver {
                     players[playerIndex].incrementGrandTotal();
                 }
 
-                //Diplay contest GrandTotal
+                //Diplay contest RoundTotal and GrandTotal
+                System.out.println(players[playerIndex].getName() + "'s Round Total: $" + players[playerIndex].getRoundTotal());
                 System.out.println(players[playerIndex].getName() + "'s Grand Total: $" + players[playerIndex].getGrandTotal());
                 
                 playerIndex++;
@@ -259,7 +260,7 @@ public class Driver {
             }
         } else if (input.length() == 1 && Character.isLetter(input.charAt(0)) && !continuedTurn) {
             // Handle letter guessing logic
-            char letter = input.charAt(0);
+            char letter = input.toUpperCase().charAt(0);
             if (puzzle.isLetterNotRevealedAlready(letter)) {
 
                 // Handle correct guess logic here
