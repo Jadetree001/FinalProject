@@ -237,11 +237,17 @@ public class Driver {
         } else if (input.equalsIgnoreCase("vowel")) {
             // Handle vowel buying logic
             System.out.println("Enter the vowel you want to buy (A, E, I, O, U): ");
-            char vowel = scanner.next().toUpperCase().charAt(0);
-            if ("AEIOUaeiou".indexOf(vowel) != -1) { // check if vowel was entered
+            char vowel = scanner.nextLine().toUpperCase().charAt(0);
+            if ("AEIOUaeiou".indexOf(vowel) != -1) { // check if a vowel was entered
                 if (puzzle.isLetterNotRevealedAlready(vowel)) {
                     if (players[playerIndex].buyVowel(vowel)) {
-                        System.out.println("Vowel bought successfully.");                        
+                        System.out.println("Vowel bought successfully.");   
+                        puzzle.updatePuzzlesGuessed(vowel);
+                        int occurrences = puzzle.countLetterOccurences(vowel);
+                        System.out.println(Integer.toString(occurrences)+ " * " + Integer.toString(players[playerIndex].getCurrentRoundTotal())); 
+                        int moneyEarned = occurrences * players[playerIndex].getCurrentRoundTotal();
+                        players[playerIndex].addRoundTotal(moneyEarned);
+                        System.out.println(players[playerIndex].getName() + " Earned $" + Integer.toString(moneyEarned));                     
                         
                     } else {
                         System.out.println("Not enough funds to buy vowel or vowel purchase failed.");
@@ -251,11 +257,6 @@ public class Driver {
                 }
             } else {
                 System.out.println("User did not enter a vowel.");
-            }
-            if (players[playerIndex].buyVowel(vowel)) {
-                System.out.println("Vowel bought successfully.");
-            } else {
-                System.out.println("Unable to buy vowel.");
             }
         } else if (input.length() == 1 && Character.isLetter(input.charAt(0)) && !continuedTurn) {
             // Handle letter guessing logic

@@ -83,11 +83,8 @@ public class Player {
 
     // Method to buy a vowel
     public boolean buyVowel(char vowel) {
-        System.out.println("------------");
-        System.out.println(grandTotal);
-        System.out.println(grandTotal >= VOWEL_COST);
-        if (grandTotal >= VOWEL_COST) {
-            grandTotal -= VOWEL_COST;
+        if (roundTotal >= VOWEL_COST) {
+            roundTotal -= VOWEL_COST;
             return true;
         } else {
             return false;

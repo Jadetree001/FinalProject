@@ -93,5 +93,10 @@ public class Puzzle {
         }
     }
 
+    // Method to check occurences of letter in string
+    public int countLetterOccurences(char letter){
+       return (int)puzzleText.chars().filter(ch -> ch == letter).count();
+    }
+
 
 }
