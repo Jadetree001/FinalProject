@@ -244,7 +244,6 @@ public class Driver {
                         System.out.println("Vowel bought successfully.");   
                         puzzle.updatePuzzlesGuessed(vowel);
                         int occurrences = puzzle.countLetterOccurences(vowel);
-                        System.out.println(Integer.toString(occurrences)+ " * " + Integer.toString(players[playerIndex].getCurrentRoundTotal())); 
                         int moneyEarned = occurrences * players[playerIndex].getCurrentRoundTotal();
                         players[playerIndex].addRoundTotal(moneyEarned);
                         System.out.println(players[playerIndex].getName() + " Earned $" + Integer.toString(moneyEarned));                     
@@ -268,7 +267,7 @@ public class Driver {
                 puzzle.updatePuzzlesGuessed(letter);
                 // Calculate and add money earned to player's round total
                 // This logic assumes a fixed amount earned per correct letter; adjust as necessary
-                int occurrences = puzzle.getPuzzleText().toLowerCase().replaceAll("[^" + letter + "]", "").length();
+                int occurrences = puzzle.countLetterOccurences(letter);
                 int moneyEarned = occurrences * players[playerIndex].getCurrentRoundTotal();
                 players[playerIndex].addRoundTotal(moneyEarned);
                 System.out.println(players[playerIndex].getName() + " guessed correctly! Earned $" + moneyEarned);
